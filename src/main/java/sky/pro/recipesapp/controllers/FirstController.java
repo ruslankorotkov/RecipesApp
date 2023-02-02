@@ -1,4 +1,4 @@
-package sky.pro.recipesapp;
+package sky.pro.recipesapp.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
