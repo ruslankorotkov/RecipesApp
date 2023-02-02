@@ -21,9 +21,9 @@ public class FirstController {
                 "описание проекта: приложение для сайта рецептов";
     }
 
-    @GetMapping("/info")
-    public String info(@RequestParam String info) {
-        return " info:" + info;
+    @GetMapping("/info1")
+    public String info1(@RequestParam String info) {
+        return " info1:" + info;
     }
 
 }
