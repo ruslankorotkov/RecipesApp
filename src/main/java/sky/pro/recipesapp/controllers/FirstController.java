@@ -23,10 +23,4 @@ public class FirstController {
                 "<h3><center>дата создания проекта: 02/02/2023 </center></h3>," +
                 "<h3><center>описание проекта: приложение для сайта рецептов</center></h3>.";
     }
-
-    @GetMapping("/info1")
-    public String info1(@RequestParam String info) {
-        return "<h3><center>info1:</center></h3>" + info;
-    }
-
 }
