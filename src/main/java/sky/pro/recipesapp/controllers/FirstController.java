@@ -10,14 +10,14 @@ public class FirstController {
 
     @GetMapping
     public String applicationLaunched() {
-        return " Приложение запущено ";
+        return "<h1 style=\"text-align: center\">Приложение запущено</h1>";
     }
 
     @GetMapping("/info")
     public String info() {
-        return " info: имя ученика: Руслан ,\n" +
-                "название вашего проекта: RecipesApp ,\n" +
-                "дату создания проекта: 02/02/2023 ,\n" +
+        return " info: имя ученика: Руслан <br/>," +
+                "название проекта: RecipesApp <br/>," +
+                "дата создания проекта: 02/02/2023 <br/>," +
                 "описание проекта: приложение для сайта рецептов";
     }
 
