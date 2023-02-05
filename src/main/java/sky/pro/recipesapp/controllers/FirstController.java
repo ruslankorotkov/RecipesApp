@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import static java.awt.Color.red;
+
 @RestController
 public class FirstController {
 
@@ -15,15 +17,16 @@ public class FirstController {
 
     @GetMapping("/info")
     public String info() {
-        return " info: имя ученика: Руслан <br/>," +
-                "название проекта: RecipesApp <br/>," +
-                "дата создания проекта: 02/02/2023 <br/>," +
-                "описание проекта: приложение для сайта рецептов";
+        return "<h2><center>info:</center></h2>,"+
+                "<h3><center>имя ученика: Руслан </center></h3>," +
+                "<h3><center>название проекта: RecipesApp</center></h3>," +
+                "<h3><center>дата создания проекта: 02/02/2023 </center></h3>," +
+                "<h3><center>описание проекта: приложение для сайта рецептов</center></h3>.";
     }
 
     @GetMapping("/info1")
     public String info1(@RequestParam String info) {
-        return " info1:" + info;
+        return "<h3><center>info1:</center></h3>" + info;
     }
 
 }
