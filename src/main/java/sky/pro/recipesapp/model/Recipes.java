@@ -9,5 +9,4 @@ public class Recipes {
     private int cooking_Time;
     private List<Ingredient> ingredients;
     private List<String> cooking_Instructions_Steps;
-
 }

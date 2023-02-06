@@ -9,11 +9,5 @@ import java.util.List;
 
 @RestController
 public class RecipesController {
-    @GetMapping("/addRecipes")
-    public String addRecipes(@RequestParam String title,
-     @RequestParam int cooking_Time,
-     @RequestParam List<Ingredient> ingredients,
-     @RequestParam List<String> cooking_Instructions_Steps){
-        return "addRecipes" + title + cooking_Time + ingredients + cooking_Instructions_Steps;
-    }
+
 }
