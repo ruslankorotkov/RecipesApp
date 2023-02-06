@@ -2,25 +2,34 @@ package sky.pro.recipesapp.impl;
 
 import org.springframework.stereotype.Service;
 import sky.pro.recipesapp.model.Ingredient;
-import sky.pro.recipesapp.model.Recipes;
 import sky.pro.recipesapp.services.IngredientService;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 @Service
 public class IngredientServiceimpl implements IngredientService {
-    private Map<Integer, Ingredient> ingredientMap = new TreeMap<>();
-    private static int id = 0;
 
+    private Map<Long, Ingredient> ingredientMap = new HashMap<>();
+    private Long generatedId = 1L;
 
-    public Ingredient getIngredientMap(Integer id) {
+    public Ingredient createIngredient(Ingredient ingredient) {
+        ingredientMap.put(generatedId, ingredient);
+        generatedId++;
+        return ingredient;
+    }
+
+    public Ingredient getById(Long id) {
         return ingredientMap.get(id);
     }
 
+    public Ingredient updateIngredient(Long id, Ingredient ingredient) {
+        ingredientMap.put(id, ingredient);
+        return ingredient;
+    }
 
-    public void addIngredient(Ingredient ingredient) {
-        ingredientMap.put(id++, ingredient);
+
+    public Ingredient deleteIngredient(Long id) {
+        return ingredientMap.remove(id);
     }
 }
