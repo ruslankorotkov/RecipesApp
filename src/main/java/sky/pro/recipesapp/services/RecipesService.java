@@ -4,3 +4,4 @@ import sky.pro.recipesapp.model.Recipes;
 
 public interface RecipesService {
 }
+
