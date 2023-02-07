@@ -3,7 +3,6 @@ package sky.pro.recipesapp.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sky.pro.recipesapp.model.Ingredient;
-import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.IngredientService;
 
 @RestController

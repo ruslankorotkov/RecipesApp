@@ -1,6 +1,8 @@
 package sky.pro.recipesapp.controllers;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 public class FirstController {
 
@@ -12,7 +14,7 @@ public class FirstController {
 
     @GetMapping("/info")
     public String info() {
-        return "<h2><center>info:</center></h2>,"+
+        return "<h2><center>info:</center></h2>," +
                 "<h3><center>имя ученика: Руслан </center></h3>," +
                 "<h3><center>название проекта: RecipesApp</center></h3>," +
                 "<h3><center>дата создания проекта: 02/02/2023 </center></h3>," +
