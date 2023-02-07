@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 public class Ingredient {
     private String name;
     private int weight;
-    private String measure;
+    private Measure measure;
     private long id = 1;
 
     public long getId() {
