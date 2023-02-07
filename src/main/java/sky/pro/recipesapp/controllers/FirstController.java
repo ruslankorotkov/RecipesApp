@@ -1,11 +1,6 @@
 package sky.pro.recipesapp.controllers;
-
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import static java.awt.Color.red;
-
 @RestController
 public class FirstController {
 

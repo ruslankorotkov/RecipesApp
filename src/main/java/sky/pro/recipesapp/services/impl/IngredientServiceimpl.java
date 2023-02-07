@@ -1,4 +1,4 @@
-package sky.pro.recipesapp.impl;
+package sky.pro.recipesapp.services.impl;
 
 import org.springframework.stereotype.Service;
 import sky.pro.recipesapp.model.Ingredient;

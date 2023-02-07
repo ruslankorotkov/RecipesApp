@@ -1,9 +1,9 @@
 package sky.pro.recipesapp.model;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import lombok.AllArgsConstructor;
 
+import java.util.List;
+@AllArgsConstructor
 public class Recipes {
     private String title;
     private int cooking_Time;
