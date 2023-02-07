@@ -38,5 +38,11 @@ public class RecipesServiceimpl implements RecipesService {
         return recipesMap.remove(id);
     }
 
+    @Override
+    public Recipe allRecipes() {
+        Map<Long, Recipe> recipesMap = new HashMap<>();
+        return (Recipe) recipesMap;
+    }
+
 }
 

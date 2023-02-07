@@ -11,5 +11,7 @@ public interface RecipesService {
     Recipe updateRecipe(long id, Recipe recipe);
 
     Recipe deleteRecipe(Long id);
+
+    Recipe allRecipes();
 }
 
