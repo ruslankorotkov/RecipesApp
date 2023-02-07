@@ -42,8 +42,8 @@ public class RecipesController {
     }
 
     @GetMapping("/recipe")
-    public Recipe allRecipe() {
-        return allRecipe();
+    public ResponseEntity allRecipes() {
+        Recipe allRecipes = recipesService.allRecipes();
+        return ResponseEntity.ok(allRecipes());
     }
-
 }
