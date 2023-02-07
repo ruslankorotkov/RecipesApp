@@ -1,7 +1,7 @@
 package sky.pro.recipesapp.services.impl;
 
 import org.springframework.stereotype.Service;
-import sky.pro.recipesapp.model.Recipes;
+import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
 import java.util.HashMap;
@@ -12,26 +12,29 @@ import java.util.Map;
 public class RecipesServiceimpl implements RecipesService {
 
 
-    private Map<Long, Recipes> recipesMap = new HashMap<>();
+    private Map<Long, Recipe> recipesMap = new HashMap<>();
     private Long generatedId = 1L;
 
-    public Recipes createRecipes(Recipes recipes) {
-        recipesMap.put(generatedId, recipes);
+    @Override
+    public Recipe createRecipe(Recipe recipe) {
+        recipesMap.put(generatedId, recipe);
         generatedId++;
-        return recipes;
+        return recipe;
     }
 
-    public Recipes getById(Long id) {
+    @Override
+    public Recipe getById(Long id) {
         return recipesMap.get(id);
     }
 
-    public Recipes updateRecipes(Long id, Recipes recipes) {
-        recipesMap.put(id, recipes);
-        return recipes;
+    @Override
+    public Recipe updateRecipe(long id, Recipe recipe) {
+        recipesMap.put(id, recipe);
+        return recipe;
     }
 
-
-    public Recipes deleteRecipes(Long id) {
+    @Override
+    public Recipe deleteRecipe(Long id) {
         return recipesMap.remove(id);
     }
 

@@ -3,7 +3,6 @@ package sky.pro.recipesapp.services.impl;
 import org.springframework.stereotype.Service;
 import sky.pro.recipesapp.model.Ingredient;
 import sky.pro.recipesapp.services.IngredientService;
-
 import java.util.HashMap;
 import java.util.Map;
 

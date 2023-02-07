@@ -1,5 +1,4 @@
 package sky.pro.recipesapp.model;
-
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
