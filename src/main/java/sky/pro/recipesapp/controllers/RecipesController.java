@@ -44,7 +44,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Редактирование рецепта по id.", summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
-    public ResponseEntity<Recipe> updateRecipe(@RequestParam Long id, @RequestBody Recipe recipe) {
+    public ResponseEntity<Recipe> updateRecipe(@RequestParam Long id, @RequestParam Recipe recipe) {
         Recipe updateRecipe = recipesService.updateRecipe(id, recipe);
         return ResponseEntity.ok(updateRecipe);
     }
@@ -52,7 +52,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление рецепта по id.", summary = "Удаление рецепта по id.", description = "Можно удалить информацию")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Recipe> deleteRecipe(@RequestBody Long id) {
+    public ResponseEntity<Recipe> deleteRecipe(@RequestParam Long id) {
         Recipe deleteRecipe = recipesService.deleteRecipe(id);
         return ResponseEntity.ok(deleteRecipe);
     }
