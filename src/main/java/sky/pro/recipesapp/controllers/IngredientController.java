@@ -1,12 +1,13 @@
 package sky.pro.recipesapp.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sky.pro.recipesapp.model.Ingredient;
 import sky.pro.recipesapp.services.IngredientService;
 
 import java.util.Map;
-
+@Tag(name = "Ингредиенты",description = "CRUD операции и другие эгдпоинты для работы с ингредиентами")
 @RestController
 @RequestMapping("ingredient")
 public class IngredientController {
@@ -32,13 +33,13 @@ public class IngredientController {
     }
 
     @PutMapping("/updateIngredient")
-    public ResponseEntity<Ingredient> updateIngredient(@RequestBody Long id, @RequestBody Ingredient ingredient) {
+    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
 
     @DeleteMapping("/deleteIngredient")
-    public ResponseEntity<Ingredient> deleteIngredient(@PathVariable Long id) {
+    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }

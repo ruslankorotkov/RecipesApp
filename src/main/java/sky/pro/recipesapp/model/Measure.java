@@ -3,7 +3,6 @@ package sky.pro.recipesapp.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
 public enum Measure {
     GRAMM("г."),
