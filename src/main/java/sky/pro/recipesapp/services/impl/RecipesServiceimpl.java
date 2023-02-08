@@ -4,16 +4,16 @@ import org.springframework.stereotype.Service;
 import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 
 @Service
 public class RecipesServiceimpl implements RecipesService {
 
 
-    private Map<Long, Recipe> recipesMap = new LinkedHashMap<>();
-    private Long generatedId = 1L;
+    private final Map<Long, Recipe> recipesMap = new TreeMap<>();
+    private long generatedId = 1L;
 
     @Override
     public Recipe createRecipe(Recipe recipe) {
@@ -29,12 +29,13 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Recipe updateRecipe(long id, Recipe recipe) {
-        recipesMap.put(id, recipe);
-        return recipe;
+        recipesMap.getOrDefault(id, null);
+        return recipesMap.put(id, recipe);
     }
 
     @Override
     public Recipe deleteRecipe(Long id) {
+        recipesMap.getOrDefault(id, null);
         return recipesMap.remove(id);
     }
 

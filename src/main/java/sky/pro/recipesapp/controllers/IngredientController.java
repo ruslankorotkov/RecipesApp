@@ -24,17 +24,17 @@ public class IngredientController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод c/reateIngredient", summary = "Можете ввести информацию об новом ингредиент", description = "Можно ввести информацию")
-    @PostMapping("/createIngredient")
-    public ResponseEntity createIngredient(@RequestBody Ingredient ingredient) {
+    @Operation(method = "Добавление ингредиента.", summary = "Можете ввести информацию об новом ингредиент", description = "Можно ввести информацию")
+    @PostMapping("/")
+    public ResponseEntity<Ingredient> createIngredient(@RequestBody Ingredient ingredient) {
         Ingredient createIngredient = ingredientService.createIngredient(ingredient);
         return ResponseEntity.ok(createIngredient);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /getIngredient/{id}", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
-    @GetMapping("/getIngredient/{Id}")
-    public ResponseEntity getIngredient(@PathVariable Long id) {
+    @Operation(method = "Получение информации об ингредиенте по id.", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
+    @GetMapping("/{Id}")
+    public ResponseEntity<Ingredient> getIngredient(@PathVariable Long id) {
         Ingredient ingredient = ingredientService.getById(id);
         if (ingredient == null) {
             return ResponseEntity.notFound().build();
@@ -43,25 +43,25 @@ public class IngredientController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /updateIngredient", summary = "Можете изменить информацию об ингредиенте по параметрам", description = "Можно изменить информацию")
-    @PutMapping("/updateIngredient")
-    public ResponseEntity updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
+    @Operation(method = "Редактирование ингредиента по id.", summary = "Редактирование ингредиента по id.", description = "Можно изменить информацию")
+    @PutMapping("/{Id}")
+    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /deleteIngredient/{id}", summary = "Можете удалить информацию об ингредиенте по id", description = "Можно удалить информацию")
-    @DeleteMapping("/deleteIngredient/{Id}")
-    public ResponseEntity deleteIngredient(@RequestParam Long id) {
+    @Operation(method = "Удаление ингредиента.", summary = "Удаление ингредиента.", description = "Можно удалить информацию")
+    @DeleteMapping("/{Id}")
+    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /getAllIngredients", summary = "Можете получить информацию о всех ингредиентах", description = "Можно получить информацию")
-    @GetMapping("/allIngredients")
-    public ResponseEntity getAllIngredients(@PathVariable Map<Long, Ingredient> ingredientMap) {
+    @Operation(method = "Получение полного списка ингредиентов.", summary = "Получение полного списка ингредиентов.", description = "Можно получить информацию")
+    @GetMapping("/")
+    public ResponseEntity<Map<Long, Ingredient>> getAllIngredients(@PathVariable Map<Long, Ingredient> ingredientMap) {
         Map<Long, Ingredient> getAllIngredients = ingredientService.allIngredients();
         return ResponseEntity.ok(getAllIngredients);
     }

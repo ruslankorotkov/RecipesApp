@@ -16,5 +16,6 @@ public interface RecipesService {
     Recipe deleteRecipe(Long id);
 
     Map<Long, Recipe> allRecipes();
+
 }
 

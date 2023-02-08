@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Лонтроллер:Информационная панель", description = "CRUD операции и другие эгдпоинты")
+@Tag(name = "Контроллер:Информационная панель", description = "CRUD операции и другие эгдпоинты")
 @RestController
 public class FirstController {
 
@@ -18,7 +18,7 @@ public class FirstController {
         return "<h1 style=\"text-align: center\">Приложение запущено</h1>";
     }
 
-    @Operation(method = "Метод получения информации о проекте", summary = "Можете получить информацию", description = "Можно получить информацию")
+    @Operation(method = "Метод получения информации о проекте (/info)", summary = "Можете получить информацию", description = "Можно получить информацию")
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @GetMapping("/info")
     public String info() {

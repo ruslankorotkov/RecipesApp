@@ -23,17 +23,17 @@ public class RecipesController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод c/createRecipe", summary = "Можете ввести информацию о новом рецепте", description = "Можно ввести информацию")
-    @PostMapping("/createRecipe")
-    public ResponseEntity createRecipe(@RequestBody Recipe recipe) {
+    @Operation(method = "Добавление рецепта.", summary = "Добавление рецепта.", description = "Можно ввести информацию")
+    @PostMapping("/")
+    public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         Recipe createRecipe = recipesService.createRecipe(recipe);
         return ResponseEntity.ok(createRecipe);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /getRecipe/{id}", summary = "Можете получить информацию о рецепте по id", description = "Можно получить информацию")
-    @GetMapping("/getRecipe/{id}")
-    public ResponseEntity getRecipe(@PathVariable Long id) {
+    @Operation(method = "Получение рецепта по id.", summary = "Получение рецепта по id.", description = "Можно получить информацию")
+    @GetMapping("/{id}")
+    public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
         Recipe recipe = recipesService.getId(id);
         if (recipe == null) {
             return ResponseEntity.notFound().build();
@@ -42,25 +42,25 @@ public class RecipesController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /updateRecipe", summary = "Можете изменить информацию  о рецепте по параметрам", description = "Можно изменить информацию")
-    @PutMapping("/updateRecipe/{id}")
-    public ResponseEntity updateRecipe(@RequestBody Long id, @RequestBody Recipe recipe) {
+    @Operation(method = "Редактирование рецепта по id.", summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
+    @PutMapping("/{id}")
+    public ResponseEntity<Recipe> updateRecipe(@RequestParam Long id, @RequestBody Recipe recipe) {
         Recipe updateRecipe = recipesService.updateRecipe(id, recipe);
         return ResponseEntity.ok(updateRecipe);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /deleteRecipe//{id}", summary = "Можете удалить информацию  о рецепте по id", description = "Можно удалить информацию")
-    @DeleteMapping("/deleteRecipe/{id}")
-    public ResponseEntity deleteRecipe(@RequestBody Long id) {
+    @Operation(method = "Удаление рецепта по id.", summary = "Удаление рецепта по id.", description = "Можно удалить информацию")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Recipe> deleteRecipe(@RequestBody Long id) {
         Recipe deleteRecipe = recipesService.deleteRecipe(id);
         return ResponseEntity.ok(deleteRecipe);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /allRecipes", summary = "Можете получить информацию о всех рецептах", description = "Можно получить информацию")
-    @GetMapping("/allRecipes")
-    public ResponseEntity getAllRecipes(@PathVariable Map<Long, Recipe> recipeMap) {
+    @Operation(method = "Получение списка всех рецептов.", summary = "Получение списка всех рецептов.", description = "Можно получить информацию")
+    @GetMapping("/")
+    public ResponseEntity<Map<Long, Recipe>> getAllRecipes() {
         Map<Long, Recipe> getAllRecipes = recipesService.allRecipes();
         return ResponseEntity.ok(getAllRecipes);
     }
