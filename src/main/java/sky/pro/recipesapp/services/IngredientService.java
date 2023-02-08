@@ -2,6 +2,8 @@ package sky.pro.recipesapp.services;
 
 import sky.pro.recipesapp.model.Ingredient;
 
+import java.util.Map;
+
 public interface IngredientService {
     Ingredient createIngredient(Ingredient ingredient);
 
@@ -12,5 +14,5 @@ public interface IngredientService {
 
     Ingredient deleteIngredient(Long id);
 
-    Ingredient allIngredients();
+    Map<Long, Ingredient> allIngredients();
 }

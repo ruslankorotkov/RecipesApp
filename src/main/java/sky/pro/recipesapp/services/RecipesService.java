@@ -2,6 +2,8 @@ package sky.pro.recipesapp.services;
 
 import sky.pro.recipesapp.model.Recipe;
 
+import java.util.Map;
+
 
 public interface RecipesService {
 
@@ -13,6 +15,6 @@ public interface RecipesService {
 
     Recipe deleteRecipe(Long id);
 
-    Recipe allRecipes();
+    Map<Long, Recipe> allRecipes();
 }
 

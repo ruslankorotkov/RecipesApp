@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -12,7 +12,7 @@ import java.util.Map;
 public class RecipesServiceimpl implements RecipesService {
 
 
-    private Map<Long, Recipe> recipesMap = new HashMap<>();
+    private Map<Long, Recipe> recipesMap = new LinkedHashMap<>();
     private Long generatedId = 1L;
 
     @Override
@@ -39,9 +39,10 @@ public class RecipesServiceimpl implements RecipesService {
     }
 
     @Override
-    public Recipe allRecipes() {
-        Map<Long, Recipe> recipesMap = new HashMap<>();
-        return (Recipe) recipesMap;
+    public Map<Long, Recipe> allRecipes() {
+        Map<Long, Recipe> recipesMap = new LinkedHashMap<>();
+        return recipesMap;
     }
 }
+
 
