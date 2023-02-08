@@ -7,7 +7,7 @@ public interface RecipesService {
 
     Recipe createRecipe(Recipe recipe);
 
-    Recipe getById(Long id);
+    Recipe getId(Long id);
 
     Recipe updateRecipe(long id, Recipe recipe);
 

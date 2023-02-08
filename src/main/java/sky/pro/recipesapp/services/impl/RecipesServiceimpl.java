@@ -23,7 +23,7 @@ public class RecipesServiceimpl implements RecipesService {
     }
 
     @Override
-    public Recipe getById(Long id) {
+    public Recipe getId(Long id) {
         return recipesMap.get(id);
     }
 

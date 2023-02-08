@@ -30,14 +30,14 @@ public class IngredientController {
     }
 
     @PutMapping("/updateIngredient")
-    public ResponseEntity updateIngredient(@RequestBody Ingredient ingredient) {
-        Ingredient updateIngredient = ingredientService.updateIngredient(ingredient.getId(), ingredient);
+    public ResponseEntity updateIngredient(@RequestBody Long id,@RequestBody Ingredient ingredient) {
+        Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
 
     @DeleteMapping("/deleteIngredient")
-    public ResponseEntity deleteIngredient(@RequestBody Ingredient ingredient) {
-        Ingredient deleteIngredient = ingredientService.deleteIngredient(ingredient.getId());
+    public ResponseEntity deleteIngredient(@PathVariable Long id) {
+        Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }
 
