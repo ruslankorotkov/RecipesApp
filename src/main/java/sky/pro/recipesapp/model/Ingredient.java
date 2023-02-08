@@ -7,9 +7,4 @@ public class Ingredient {
     private String name;
     private int weight;
     private Measure measure;
-    private long id = 1;
-
-    public long getId() {
-        return id;
-    }
 }

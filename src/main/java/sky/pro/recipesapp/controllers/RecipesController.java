@@ -14,14 +14,14 @@ public class RecipesController {
         this.recipesService = recipesService;
     }
 
-    @PostMapping("/recipe")
-    public ResponseEntity createRecipe(@RequestBody Recipe recipe) {
+    @PostMapping("/createRecipe")
+    public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         Recipe createRecipe = recipesService.createRecipe(recipe);
         return ResponseEntity.ok(createRecipe);
     }
 
-    @GetMapping("/recipe/{Id}")
-    public ResponseEntity getRecipe(@PathVariable Long id) {
+    @GetMapping("/getRecipe/{Id}")
+    public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
         Recipe recipe = recipesService.getById(id);
         if (recipe == null) {
             return ResponseEntity.notFound().build();
@@ -29,19 +29,19 @@ public class RecipesController {
         return ResponseEntity.ok(recipe);
     }
 
-    @PutMapping("/recipe")
-    public ResponseEntity updateRecipe(@RequestBody Recipe recipe) {
+    @PutMapping("/updateRecipe")
+    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe) {
         Recipe updateRecipe = recipesService.updateRecipe(recipe.getId(), recipe);
         return ResponseEntity.ok(updateRecipe);
     }
 
-    @DeleteMapping("/recipe")
-    public ResponseEntity deleteRecipe(@RequestBody Recipe recipe) {
-        Recipe deleteRecipe = recipesService.deleteRecipe(recipe.getId());
+    @DeleteMapping("/deleteRecipe")
+    public ResponseEntity<Recipe> deleteRecipe(@RequestBody Long id) {
+        Recipe deleteRecipe = recipesService.deleteRecipe(recipe.getById(id),getRecipe());
         return ResponseEntity.ok(deleteRecipe);
     }
 
-    @GetMapping("/recipe")
+    @GetMapping("/allRecipes")
     public ResponseEntity allRecipes() {
         Recipe allRecipes = recipesService.allRecipes();
         return ResponseEntity.ok(allRecipes());
