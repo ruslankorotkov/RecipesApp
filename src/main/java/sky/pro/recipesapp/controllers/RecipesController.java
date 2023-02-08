@@ -31,7 +31,7 @@ public class RecipesController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /getIngredient/{Id}", summary = "Можете получить информацию о рецепте по id", description = "Можно получить информацию")
+    @Operation(method = "Метод /getIngredient/{id}", summary = "Можете получить информацию о рецепте по id", description = "Можно получить информацию")
     @GetMapping("/getRecipe/{Id}")
     public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
         Recipe recipe = recipesService.getId(id);
@@ -50,7 +50,7 @@ public class RecipesController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /deleteIngredient/{Id}", summary = "Можете удалить информацию  о рецепте по id", description = "Можно удалить информацию")
+    @Operation(method = "Метод /deleteIngredient/{id}", summary = "Можете удалить информацию  о рецепте по id", description = "Можно удалить информацию")
     @DeleteMapping("/deleteRecipe/{Id}")
     public ResponseEntity<Recipe> deleteRecipe(@RequestParam Long id) {
         Recipe deleteRecipe = recipesService.deleteRecipe(id);
@@ -60,7 +60,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод /getAllIngredients", summary = "Можете получить информацию о всех рецептах", description = "Можно получить информацию")
     @GetMapping("/allRecipes")
-    public ResponseEntity getAllRecipes() {
+    public ResponseEntity getAllRecipes(@PathVariable Map<Long, Recipe> recipeMap) {
         Map<Long, Recipe> getAllRecipes = recipesService.allRecipes();
         return ResponseEntity.ok(getAllRecipes);
     }

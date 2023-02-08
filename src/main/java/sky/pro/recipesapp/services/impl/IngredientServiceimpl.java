@@ -39,7 +39,6 @@ public class IngredientServiceimpl implements IngredientService {
 
     @Override
     public Map<Long, Ingredient> allIngredients() {
-        Map<Long, Ingredient> ingredientMap = new LinkedHashMap<>();
         return ingredientMap;
     }
 }

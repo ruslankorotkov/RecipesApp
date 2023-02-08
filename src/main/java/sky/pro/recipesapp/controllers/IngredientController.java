@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sky.pro.recipesapp.model.Ingredient;
+import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.IngredientService;
 
 import java.util.Map;
@@ -31,7 +32,7 @@ public class IngredientController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /getIngredient/{Id}", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
+    @Operation(method = "Метод /getIngredient/{id}", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
     @GetMapping("/getIngredient/{Id}")
     public ResponseEntity<Ingredient> getIngredient(@PathVariable Long id) {
         Ingredient ingredient = ingredientService.getById(id);
@@ -50,7 +51,7 @@ public class IngredientController {
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
-    @Operation(method = "Метод /deleteIngredient/{Id}", summary = "Можете удалить информацию об ингредиенте по id", description = "Можно удалить информацию")
+    @Operation(method = "Метод /deleteIngredient/{id}", summary = "Можете удалить информацию об ингредиенте по id", description = "Можно удалить информацию")
     @DeleteMapping("/deleteIngredient/{Id}")
     public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
@@ -60,7 +61,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод /getAllIngredients", summary = "Можете получить информацию о всех ингредиентах", description = "Можно получить информацию")
     @GetMapping("/allIngredients")
-    public ResponseEntity getAllIngredients() {
+    public ResponseEntity getAllIngredients(@PathVariable Map<Long, Ingredient> ingredientMap) {
         Map<Long, Ingredient> getAllIngredients = ingredientService.allIngredients();
         return ResponseEntity.ok(getAllIngredients);
     }

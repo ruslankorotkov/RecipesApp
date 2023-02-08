@@ -40,7 +40,6 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Map<Long, Recipe> allRecipes() {
-        Map<Long, Recipe> recipesMap = new LinkedHashMap<>();
         return recipesMap;
     }
 }
