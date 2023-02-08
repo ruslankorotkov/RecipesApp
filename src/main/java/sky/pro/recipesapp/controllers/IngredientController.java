@@ -26,7 +26,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод c/reateIngredient", summary = "Можете ввести информацию об новом ингредиент", description = "Можно ввести информацию")
     @PostMapping("/createIngredient")
-    public ResponseEntity<Ingredient> createIngredient(@RequestBody Ingredient ingredient) {
+    public ResponseEntity createIngredient(@RequestBody Ingredient ingredient) {
         Ingredient createIngredient = ingredientService.createIngredient(ingredient);
         return ResponseEntity.ok(createIngredient);
     }
@@ -34,7 +34,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод /getIngredient/{id}", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
     @GetMapping("/getIngredient/{Id}")
-    public ResponseEntity<Ingredient> getIngredient(@PathVariable Long id) {
+    public ResponseEntity getIngredient(@PathVariable Long id) {
         Ingredient ingredient = ingredientService.getById(id);
         if (ingredient == null) {
             return ResponseEntity.notFound().build();
@@ -45,7 +45,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод /updateIngredient", summary = "Можете изменить информацию об ингредиенте по параметрам", description = "Можно изменить информацию")
     @PutMapping("/updateIngredient")
-    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
+    public ResponseEntity updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
@@ -53,7 +53,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Метод /deleteIngredient/{id}", summary = "Можете удалить информацию об ингредиенте по id", description = "Можно удалить информацию")
     @DeleteMapping("/deleteIngredient/{Id}")
-    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
+    public ResponseEntity deleteIngredient(@RequestParam Long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }
