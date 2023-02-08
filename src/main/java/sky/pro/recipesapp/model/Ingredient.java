@@ -10,5 +10,5 @@ import java.util.List;
 public class Ingredient {
     private String name;
     private int weight;
-    private List<String> measure;
+    private String measure;
 }
