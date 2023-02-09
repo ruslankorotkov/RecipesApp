@@ -9,8 +9,7 @@ public interface IngredientService {
 
     Ingredient getById(Long id);
 
-
-    Ingredient updateIngredient(Long id, Ingredient ingredient);
+    Ingredient updateIngredient(long id, Ingredient ingredient);
 
     Ingredient deleteIngredient(Long id);
 

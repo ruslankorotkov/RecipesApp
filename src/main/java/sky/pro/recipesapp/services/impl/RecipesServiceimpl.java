@@ -30,9 +30,7 @@ public class RecipesServiceimpl implements RecipesService {
     @Override
     public Recipe updateRecipe(long id, Recipe recipe) {
         recipesMap.getOrDefault(id, null);
-        recipesMap.remove(id);
         recipesMap.put(id, recipe);
-        generatedId++;
         return recipe;
     }
 

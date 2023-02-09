@@ -25,10 +25,12 @@ public class IngredientServiceimpl implements IngredientService {
         return ingredientMap.get(id);
     }
 
+
     @Override
-    public Ingredient updateIngredient(Long id, Ingredient ingredient) {
+    public Ingredient updateIngredient(long id, Ingredient ingredient) {
         ingredientMap.getOrDefault(id, null);
-        return ingredientMap.put(id, ingredient);
+        ingredientMap.put(id, ingredient);
+        return ingredient;
     }
 
     @Override
