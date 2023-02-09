@@ -44,7 +44,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Редактирование рецепта по id.", summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
-    public ResponseEntity<Recipe> updateRecipe(@RequestParam Long id, @RequestParam Recipe recipe) {
+    public ResponseEntity<Recipe> updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
         Recipe updateRecipe = recipesService.updateRecipe(id, recipe);
         return ResponseEntity.ok(updateRecipe);
     }
