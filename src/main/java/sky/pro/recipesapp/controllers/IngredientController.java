@@ -34,7 +34,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение информации об ингредиенте по id.", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
     @GetMapping("/{Id}")
-    public ResponseEntity<Ingredient> getIngredient(@PathVariable Long id) {
+    public ResponseEntity<Ingredient> getIngredient(@PathVariable long id) {
         Ingredient ingredient = ingredientService.getById(id);
         if (ingredient == null) {
             return ResponseEntity.notFound().build();
@@ -53,7 +53,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление ингредиента.", summary = "Удаление ингредиента.", description = "Можно удалить информацию")
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
+    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }

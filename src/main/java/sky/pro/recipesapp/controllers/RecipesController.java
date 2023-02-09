@@ -33,7 +33,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение рецепта по id.", summary = "Получение рецепта по id.", description = "Можно получить информацию")
     @GetMapping("/{id}")
-    public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
+    public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
         Recipe recipe = recipesService.getId(id);
         if (recipe == null) {
             return ResponseEntity.notFound().build();
@@ -52,7 +52,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление рецепта по id.", summary = "Удаление рецепта по id.", description = "Можно удалить информацию")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Recipe> deleteRecipe(@RequestParam Long id) {
+    public ResponseEntity<Recipe> deleteRecipe(@RequestParam long id) {
         Recipe deleteRecipe = recipesService.deleteRecipe(id);
         return ResponseEntity.ok(deleteRecipe);
     }

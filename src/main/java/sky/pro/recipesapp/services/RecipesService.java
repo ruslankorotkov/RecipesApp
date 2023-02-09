@@ -9,11 +9,11 @@ public interface RecipesService {
 
     Recipe createRecipe(Recipe recipe);
 
-    Recipe getId(Long id);
+    Recipe getId(long id);
 
     Recipe updateRecipe(long id, Recipe recipe);
 
-    Recipe deleteRecipe(Long id);
+    Recipe deleteRecipe(long id);
 
     Map<Long, Recipe> allRecipes();
 }

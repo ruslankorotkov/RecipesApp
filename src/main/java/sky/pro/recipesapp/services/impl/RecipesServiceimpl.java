@@ -23,7 +23,7 @@ public class RecipesServiceimpl implements RecipesService {
     }
 
     @Override
-    public Recipe getId(Long id) {
+    public Recipe getId(long id) {
         return recipesMap.get(id);
     }
 
@@ -35,7 +35,7 @@ public class RecipesServiceimpl implements RecipesService {
     }
 
     @Override
-    public Recipe deleteRecipe(Long id) {
+    public Recipe deleteRecipe(long id) {
         recipesMap.getOrDefault(id, null);
         return recipesMap.remove(id);
     }

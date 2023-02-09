@@ -21,7 +21,7 @@ public class IngredientServiceimpl implements IngredientService {
     }
 
     @Override
-    public Ingredient getById(Long id) {
+    public Ingredient getById(long id) {
         return ingredientMap.get(id);
     }
 
@@ -34,7 +34,7 @@ public class IngredientServiceimpl implements IngredientService {
     }
 
     @Override
-    public Ingredient deleteIngredient(Long id) {
+    public Ingredient deleteIngredient(long id) {
         ingredientMap.getOrDefault(id, null);
         return ingredientMap.remove(id);
     }
