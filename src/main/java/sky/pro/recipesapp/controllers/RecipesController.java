@@ -46,6 +46,9 @@ public class RecipesController {
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> updateRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
         Recipe updateRecipe = recipesService.updateRecipe(id, recipe);
+        if (recipe == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(updateRecipe);
     }
 

@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sky.pro.recipesapp.model.Ingredient;
-import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.IngredientService;
 
 import java.util.Map;
