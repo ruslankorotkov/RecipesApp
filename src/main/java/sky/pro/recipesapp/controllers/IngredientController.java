@@ -45,7 +45,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Редактирование ингредиента по id.", summary = "Редактирование ингредиента по id.", description = "Можно изменить информацию")
     @PutMapping("/{Id}")
-    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestParam Ingredient ingredient) {
+    public ResponseEntity<Ingredient> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }

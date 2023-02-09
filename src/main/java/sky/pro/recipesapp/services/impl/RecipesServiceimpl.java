@@ -46,7 +46,6 @@ public class RecipesServiceimpl implements RecipesService {
     public Map<Long, Recipe> allRecipes() {
         return recipesMap;
     }
-
 }
 
 
