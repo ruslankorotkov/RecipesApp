@@ -7,11 +7,11 @@ import java.util.Map;
 public interface IngredientService {
     Ingredient createIngredient(Ingredient ingredient);
 
-    Ingredient getById(long id);
+    Ingredient getId(Long id);
 
-    Ingredient updateIngredient(long id, Ingredient ingredient);
+    Ingredient updateIngredient(Long id, Ingredient ingredient);
 
-    Ingredient deleteIngredient(long id);
+    Ingredient deleteIngredient(Long id);
 
     Map<Long, Ingredient> allIngredients();
 }

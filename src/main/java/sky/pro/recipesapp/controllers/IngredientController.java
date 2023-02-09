@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Tag(name = "Ингредиенты", description = "CRUD операции и другие эгдпоинты для работы с ингредиентами")
 @RestController
-@RequestMapping("ingredient")
+@RequestMapping("/ingredient")
 public class IngredientController {
     private final IngredientService ingredientService;
 
@@ -34,8 +34,8 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение информации об ингредиенте по id.", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
     @GetMapping("/{Id}")
-    public ResponseEntity<Ingredient> getIngredient(@PathVariable long id) {
-        Ingredient ingredient = ingredientService.getById(id);
+    public ResponseEntity<Ingredient> getIngredient(@RequestParam Long id) {
+        Ingredient ingredient = ingredientService.getId(id);
         if (ingredient == null) {
             return ResponseEntity.notFound().build();
         }
@@ -45,7 +45,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Редактирование ингредиента по id.", summary = "Редактирование ингредиента по id.", description = "Можно изменить информацию")
     @PutMapping("/{Id}")
-    public ResponseEntity<Ingredient> updateIngredient(@PathVariable long id, @RequestBody Ingredient ingredient) {
+    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestBody Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
@@ -53,7 +53,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление ингредиента.", summary = "Удаление ингредиента.", description = "Можно удалить информацию")
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam long id) {
+    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }
