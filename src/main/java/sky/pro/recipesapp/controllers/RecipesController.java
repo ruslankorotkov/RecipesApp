@@ -63,5 +63,6 @@ public class RecipesController {
     public ResponseEntity<Map<Long, Recipe>> getAllRecipes() {
         Map<Long, Recipe> getAllRecipes = recipesService.allRecipes();
         return ResponseEntity.ok(getAllRecipes);
+
     }
 }

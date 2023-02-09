@@ -64,6 +64,7 @@ public class IngredientController {
     public ResponseEntity<Map<Long, Ingredient>> getAllIngredients(@PathVariable Map<Long, Ingredient> ingredientMap) {
         Map<Long, Ingredient> getAllIngredients = ingredientService.allIngredients();
         return ResponseEntity.ok(getAllIngredients);
+
     }
 }
 

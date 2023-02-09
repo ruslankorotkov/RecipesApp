@@ -31,7 +31,7 @@ public class RecipesServiceimpl implements RecipesService {
     public Recipe updateRecipe(long id, Recipe recipe) {
         recipesMap.getOrDefault(id, null);
         recipesMap.remove(id);
-         recipesMap.put(id, recipe);
+        recipesMap.put(id, recipe);
         generatedId++;
         return recipe;
     }
@@ -46,6 +46,7 @@ public class RecipesServiceimpl implements RecipesService {
     public Map<Long, Recipe> allRecipes() {
         return recipesMap;
     }
+
 }
 
 
