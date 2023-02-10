@@ -52,7 +52,7 @@ public class RecipesController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление рецепта по id.", summary = "Удаление рецепта по id.", description = "Можно удалить информацию")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Recipe> deleteRecipe(@RequestParam long id) {
+    public ResponseEntity<Recipe> deleteRecipe(@PathVariable long id) {
         Recipe deleteRecipe = recipesService.deleteRecipe(id);
         return ResponseEntity.ok(deleteRecipe);
     }

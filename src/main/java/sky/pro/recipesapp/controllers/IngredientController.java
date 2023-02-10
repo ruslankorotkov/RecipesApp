@@ -32,8 +32,8 @@ public class IngredientController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение информации об ингредиенте по id.", summary = "Можете получить информацию об ингредиенте по id", description = "Можно получить информацию")
-    @GetMapping("/{Id}")
-    public ResponseEntity<Ingredient> getIngredient(@RequestParam Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Ingredient> getIngredient(@PathVariable long id) {
         Ingredient ingredient = ingredientService.getId(id);
         if (ingredient == null) {
             return ResponseEntity.notFound().build();
@@ -43,16 +43,16 @@ public class IngredientController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Редактирование ингредиента по id.", summary = "Редактирование ингредиента по id.", description = "Можно изменить информацию")
-    @PutMapping("/{Id}")
-    public ResponseEntity<Ingredient> updateIngredient(@RequestParam Long id, @RequestBody Ingredient ingredient) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Ingredient> updateIngredient(@PathVariable long id, @RequestBody Ingredient ingredient) {
         Ingredient updateIngredient = ingredientService.updateIngredient(id, ingredient);
         return ResponseEntity.ok(updateIngredient);
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление ингредиента.", summary = "Удаление ингредиента.", description = "Можно удалить информацию")
-    @DeleteMapping("/{Id}")
-    public ResponseEntity<Ingredient> deleteIngredient(@RequestParam Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Ingredient> deleteIngredient(@PathVariable long id) {
         Ingredient deleteIngredient = ingredientService.deleteIngredient(id);
         return ResponseEntity.ok(deleteIngredient);
     }
@@ -60,7 +60,7 @@ public class IngredientController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение полного списка ингредиентов.", summary = "Получение полного списка ингредиентов.", description = "Можно получить информацию")
     @GetMapping("/")
-    public ResponseEntity<Map<Long, Ingredient>> getAllIngredients(@PathVariable Map<Long, Ingredient> ingredientMap) {
+    public ResponseEntity<Map<Long, Ingredient>> getAllIngredients() {
         Map<Long, Ingredient> getAllIngredients = ingredientService.allIngredients();
         return ResponseEntity.ok(getAllIngredients);
 

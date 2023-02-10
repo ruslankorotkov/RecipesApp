@@ -29,14 +29,14 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Recipe updateRecipe(long id, Recipe recipe) {
-        recipesMap.getOrDefault(id, null);
+
         recipesMap.put(id, recipe);
         return recipe;
     }
 
     @Override
     public Recipe deleteRecipe(long id) {
-        recipesMap.getOrDefault(id, null);
+
         return recipesMap.remove(id);
     }
 

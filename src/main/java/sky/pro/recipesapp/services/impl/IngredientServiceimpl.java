@@ -21,21 +21,21 @@ public class IngredientServiceimpl implements IngredientService {
     }
 
     @Override
-    public Ingredient getId(Long id) {
+    public Ingredient getId(long id) {
         return ingredientMap.get(id);
     }
 
 
     @Override
-    public Ingredient updateIngredient(Long id, Ingredient ingredient) {
-        ingredientMap.getOrDefault(id, null);
+    public Ingredient updateIngredient(long id, Ingredient ingredient) {
+        
         ingredientMap.put(id, ingredient);
         return ingredient;
     }
 
     @Override
-    public Ingredient deleteIngredient(Long id) {
-        ingredientMap.getOrDefault(id, null);
+    public Ingredient deleteIngredient(long id) {
+
         return ingredientMap.remove(id);
     }
 
