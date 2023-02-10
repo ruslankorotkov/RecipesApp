@@ -3,15 +3,16 @@ package sky.pro.recipesapp.services;
 import sky.pro.recipesapp.model.Ingredient;
 
 import java.util.Map;
+import java.util.Optional;
 
 public interface IngredientService {
     Ingredient createIngredient(Ingredient ingredient);
 
-    Ingredient getId(long id);
+    Optional<Ingredient> getId(Long id);
 
-    Ingredient updateIngredient(long id, Ingredient ingredient);
+    Ingredient updateIngredient(Long id, Ingredient ingredient);
 
-    Ingredient deleteIngredient(long id);
+    Ingredient deleteIngredient(Long id);
 
     Map<Long, Ingredient> allIngredients();
 }

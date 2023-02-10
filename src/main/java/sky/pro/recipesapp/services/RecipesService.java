@@ -3,17 +3,18 @@ package sky.pro.recipesapp.services;
 import sky.pro.recipesapp.model.Recipe;
 
 import java.util.Map;
+import java.util.Optional;
 
 
 public interface RecipesService {
 
     Recipe createRecipe(Recipe recipe);
 
-    Recipe getId(long id);
+    Optional<Recipe> getId(Long id);
 
-    Recipe updateRecipe(long id, Recipe recipe);
+    Recipe updateRecipe(Long id, Recipe recipe);
 
-    Recipe deleteRecipe(long id);
+    Recipe deleteRecipe(Long id);
 
     Map<Long, Recipe> allRecipes();
 }
