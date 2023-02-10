@@ -12,9 +12,9 @@ public interface RecipesService {
 
     Optional<Recipe> getId(Long id);
 
-    Recipe updateRecipe(Long id, Recipe recipe);
+    Optional<Recipe> updateRecipe(Long id, Recipe recipe);
 
-    Recipe deleteRecipe(Long id);
+    Optional<Recipe> deleteRecipe(Long id);
 
     Map<Long, Recipe> allRecipes();
 }

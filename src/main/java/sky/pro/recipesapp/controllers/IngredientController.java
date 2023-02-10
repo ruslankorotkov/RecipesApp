@@ -41,14 +41,14 @@ public class IngredientController {
     @Operation(method = "Редактирование ингредиента по id.", summary = "Редактирование ингредиента по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
     public ResponseEntity<Ingredient> updateIngredient(@PathVariable Long id, @RequestBody Ingredient ingredient) {
-        return ResponseEntity.ok(ingredientService.updateIngredient(id, ingredient));
+        return ResponseEntity.of(ingredientService.updateIngredient(id, ingredient));
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление ингредиента.", summary = "Удаление ингредиента.", description = "Можно удалить информацию")
     @DeleteMapping("/{id}")
     public ResponseEntity<Ingredient> deleteIngredient(@PathVariable Long id) {
-        return ResponseEntity.ok(ingredientService.deleteIngredient(id));
+        return ResponseEntity.of(ingredientService.deleteIngredient(id));
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})

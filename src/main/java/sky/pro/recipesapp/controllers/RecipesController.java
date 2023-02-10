@@ -40,14 +40,14 @@ public class RecipesController {
     @Operation(method = "Редактирование рецепта по id.", summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
-        return ResponseEntity.ok(recipesService.updateRecipe(id, recipe));
+        return ResponseEntity.of(recipesService.updateRecipe(id, recipe));
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Удаление рецепта по id.", summary = "Удаление рецепта по id.", description = "Можно удалить информацию")
     @DeleteMapping("/{id}")
     public ResponseEntity<Recipe> deleteRecipe(@PathVariable Long id) {
-        return ResponseEntity.ok(recipesService.deleteRecipe(id));
+        return ResponseEntity.of(recipesService.deleteRecipe(id));
     }
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})

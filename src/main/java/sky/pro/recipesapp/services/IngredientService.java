@@ -10,9 +10,9 @@ public interface IngredientService {
 
     Optional<Ingredient> getId(Long id);
 
-    Ingredient updateIngredient(Long id, Ingredient ingredient);
+    Optional<Ingredient> updateIngredient(Long id, Ingredient ingredient);
 
-    Ingredient deleteIngredient(Long id);
+    Optional<Ingredient> deleteIngredient(Long id);
 
     Map<Long, Ingredient> allIngredients();
 }
