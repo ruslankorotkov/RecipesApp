@@ -5,6 +5,7 @@ import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 
@@ -29,14 +30,13 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Recipe updateRecipe(long id, Recipe recipe) {
-
-        recipesMap.put(id, recipe);
+        recipesMap.replace(id,recipe);
         return recipe;
     }
 
     @Override
     public Recipe deleteRecipe(long id) {
-
+        recipesMap.get(id);
         return recipesMap.remove(id);
     }
 

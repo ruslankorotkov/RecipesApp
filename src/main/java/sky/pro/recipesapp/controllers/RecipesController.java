@@ -24,7 +24,7 @@ public class RecipesController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Добавление рецепта.", summary = "Добавление рецепта.", description = "Можно ввести информацию")
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         Recipe createRecipe = recipesService.createRecipe(recipe);
         return ResponseEntity.ok(createRecipe);
@@ -59,7 +59,7 @@ public class RecipesController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение списка всех рецептов.", summary = "Получение списка всех рецептов.", description = "Можно получить информацию")
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<Map<Long, Recipe>> getAllRecipes() {
         Map<Long, Recipe> getAllRecipes = recipesService.allRecipes();
         return ResponseEntity.ok(getAllRecipes);

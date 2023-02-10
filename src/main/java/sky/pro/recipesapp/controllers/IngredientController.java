@@ -24,7 +24,7 @@ public class IngredientController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Добавление ингредиента.", summary = "Можете ввести информацию об новом ингредиент", description = "Можно ввести информацию")
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Ingredient> createIngredient(@RequestBody Ingredient ingredient) {
         Ingredient createIngredient = ingredientService.createIngredient(ingredient);
         return ResponseEntity.ok(createIngredient);
@@ -59,7 +59,7 @@ public class IngredientController {
 
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Информация была получена", content = {@Content(mediaType = "application/json")})})
     @Operation(method = "Получение полного списка ингредиентов.", summary = "Получение полного списка ингредиентов.", description = "Можно получить информацию")
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<Map<Long, Ingredient>> getAllIngredients() {
         Map<Long, Ingredient> getAllIngredients = ingredientService.allIngredients();
         return ResponseEntity.ok(getAllIngredients);

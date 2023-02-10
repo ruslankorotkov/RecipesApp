@@ -29,7 +29,7 @@ public class IngredientServiceimpl implements IngredientService {
     @Override
     public Ingredient updateIngredient(long id, Ingredient ingredient) {
         
-        ingredientMap.put(id, ingredient);
+        ingredientMap.replace(id,ingredient);
         return ingredient;
     }
 
