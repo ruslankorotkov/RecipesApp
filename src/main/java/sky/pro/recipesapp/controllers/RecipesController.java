@@ -5,13 +5,12 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
-import javax.annotation.processing.SupportedOptions;
 import java.util.Map;
 
 @Tag(name = "Рецепты", description = "CRUD операции и другие эгдпоинты для работы с рецептами")
