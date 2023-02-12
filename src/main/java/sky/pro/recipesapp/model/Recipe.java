@@ -1,5 +1,6 @@
 package sky.pro.recipesapp.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,6 +13,6 @@ public class Recipe {
     private String title;
     private int cookingTime;
     private List<Ingredient> ingredients;
-    private List<String> cookingInstructionsSteps;
+    private List<Step> cookingInstructionsSteps;
 
 }
