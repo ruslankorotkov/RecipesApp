@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sky.pro.recipesapp.model.Recipe;
@@ -43,6 +44,7 @@ public class RecipesController {
             summary = "Получение рецепта по id.", description = "Можно получить информацию")
     @GetMapping("/{id}")
     public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
+        Validate.notBlank(getRecipe(id).toString(), "Строка не может быть пустая или значение null");
         return ResponseEntity.of(recipesService.getId(id));
     }
 
@@ -56,6 +58,7 @@ public class RecipesController {
             summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
+        Validate.notBlank(recipe.toString(), "Строка не может быть пустая или значение null");
         return ResponseEntity.of(recipesService.updateRecipe(id, recipe));
     }
 
