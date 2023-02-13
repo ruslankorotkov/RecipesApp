@@ -9,9 +9,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sky.pro.recipesapp.model.Ingredient;
 import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "Рецепты", description = "CRUD операции и другие эгдпоинты для работы с рецептами")
@@ -31,6 +33,12 @@ public class RecipesController {
             summary = "Добавление рецепта.", description = "Можно ввести информацию")
     @PostMapping("/")
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
+        StringUtils.isBlank(recipe.getTitle());
+        StringUtils.isBlank(recipe.getIngredients().iterator().next().getName());
+        StringUtils.isBlank(recipe.getIngredients().iterator().next().getMeasure());
+        StringUtils.isBlank(recipe.getCookingInstructionsSteps().stream().iterator().next().getStep());
+        Validate.notNull(recipe.getCookingTime(),"Ошибка",0);
+        Validate.notNull(recipe.getIngredients().iterator().next().getWeight(),"Ошибка",0);
         return ResponseEntity.ok(recipesService.createRecipe(recipe));
     }
 
@@ -44,7 +52,6 @@ public class RecipesController {
             summary = "Получение рецепта по id.", description = "Можно получить информацию")
     @GetMapping("/{id}")
     public ResponseEntity<Recipe> getRecipe(@PathVariable Long id) {
-        Validate.notBlank(getRecipe(id).toString(), "Строка не может быть пустая или значение null");
         return ResponseEntity.of(recipesService.getId(id));
     }
 
@@ -58,7 +65,6 @@ public class RecipesController {
             summary = "Редактирование рецепта по id.", description = "Можно изменить информацию")
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
-        Validate.notBlank(recipe.toString(), "Строка не может быть пустая или значение null");
         return ResponseEntity.of(recipesService.updateRecipe(id, recipe));
     }
 
