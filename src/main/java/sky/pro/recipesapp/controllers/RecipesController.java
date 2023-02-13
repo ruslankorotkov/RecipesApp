@@ -13,6 +13,7 @@ import sky.pro.recipesapp.model.Ingredient;
 import sky.pro.recipesapp.model.Recipe;
 import sky.pro.recipesapp.services.RecipesService;
 
+import javax.validation.ValidationException;
 import java.util.List;
 import java.util.Map;
 
@@ -33,12 +34,6 @@ public class RecipesController {
             summary = "Добавление рецепта.", description = "Можно ввести информацию")
     @PostMapping("/")
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
-        StringUtils.isBlank(recipe.getTitle());
-        StringUtils.isBlank(recipe.getIngredients().iterator().next().getName());
-        StringUtils.isBlank(recipe.getIngredients().iterator().next().getMeasure());
-        StringUtils.isBlank(recipe.getCookingInstructionsSteps().stream().iterator().next().getStep());
-        Validate.notNull(recipe.getCookingTime(),"Ошибка",0);
-        Validate.notNull(recipe.getIngredients().iterator().next().getWeight(),"Ошибка",0);
         return ResponseEntity.ok(recipesService.createRecipe(recipe));
     }
 
