@@ -30,9 +30,9 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Recipe createRecipe(Recipe recipe) {
-        if (!validateService.validate(recipe)) {
-            throw new ValidationException(recipe.toString());
-        }
+//        if (!validateService.validate(recipe)) {
+//            throw new ValidationException(recipe.toString());
+//        }
         return recipesMap.put(generatedId++, recipe);
     }
 
@@ -43,9 +43,9 @@ public class RecipesServiceimpl implements RecipesService {
 
     @Override
     public Optional<Recipe> updateRecipe(Long id, Recipe recipe) {
-        if (!validateService.validate(recipe)) {
-            throw new ValidationException(recipe.toString());
-        }
+//        if (!validateService.validate(recipe)) {
+//            throw new ValidationException(recipe.toString());
+//        }
         return Optional.ofNullable(recipesMap.replace(id, recipe));
     }
 

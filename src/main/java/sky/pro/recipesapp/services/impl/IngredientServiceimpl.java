@@ -22,9 +22,9 @@ public class IngredientServiceimpl implements IngredientService {
 
     @Override
     public Ingredient createIngredient(Ingredient ingredient) {
-        if (!validateService.validate(ingredient)) {
-            throw new ValidationException(ingredient.toString());
-        }
+//        if (!validateService.validate(ingredient)) {
+//            throw new ValidationException(ingredient.toString());
+//        }
         return ingredientMap.put(generatedId++, ingredient);
     }
 
@@ -35,9 +35,9 @@ public class IngredientServiceimpl implements IngredientService {
 
     @Override
     public Optional<Ingredient> updateIngredient(Long id, Ingredient ingredient) {
-        if (!validateService.validate(ingredient)) {
-            throw new ValidationException(ingredient.toString());
-        }
+//        if (!validateService.validate(ingredient)) {
+//            throw new ValidationException(ingredient.toString());
+//        }
         return Optional.ofNullable(ingredientMap.replace(id, ingredient));
     }
 
