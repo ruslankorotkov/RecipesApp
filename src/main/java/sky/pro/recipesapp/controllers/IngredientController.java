@@ -12,7 +12,6 @@ import sky.pro.recipesapp.model.Ingredient;
 import sky.pro.recipesapp.services.IngredientService;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Tag(name = "Ингредиенты", description = "CRUD операции и другие эгдпоинты для работы с ингредиентами")
 @RestController
